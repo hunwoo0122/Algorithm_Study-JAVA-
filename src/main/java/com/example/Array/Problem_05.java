@@ -2,7 +2,6 @@ package com.example.Array;
 
 import java.util.Arrays;
 
-// 책보고 문제 풀이
 public class Problem_05 {
     public static void main(String[] args) {
         int[][] arr1 = {{1,4}, {3,2}, {4,1}};
