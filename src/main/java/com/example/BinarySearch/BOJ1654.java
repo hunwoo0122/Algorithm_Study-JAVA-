@@ -9,12 +9,12 @@ public class BOJ1654 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        StringTokenizer st = new StringTokenizer(br.readLine(),"");
+        StringTokenizer st = new StringTokenizer(br.readLine()," ");
 
         int K = Integer.parseInt(st.nextToken());
         int N = Integer.parseInt(st.nextToken());
 
-        int[] arr = new int[N];
+        int[] arr = new int[K];
 
         long max = 0;
 
@@ -39,7 +39,7 @@ public class BOJ1654 {
 
             // 구해진 중간 길이로 잘라서 총 몇 개가 만들어지는지를 구한다.
 
-            for (int i = 0; i < N; i++) {
+            for (int i = 0; i < arr.length; i++) {
                 count += (arr[i] / mid);
             }
 
