@@ -2,36 +2,30 @@ package com.example.Hash;
 
 import java.util.HashMap;
 
-public class Problem_19 {
+public class Problem_19_improve {
     public static void main(String[] args) {
         String[] participant = {"leo", "kiki", "eden"};
         String[] completion = {"eden", "kiki"};
         String answer = solution(participant, completion);
         System.out.println(answer);
     }
+
     public static String solution(String[] participant, String[] completion) {
-        HashMap<String, Integer> hashMap = new HashMap();
+        HashMap<String, Integer> hashMap = new HashMap<>();  // 제네릭 명시로 경고 해결
         String answer = "";
 
-        for (int i = 0; i < participant.length; i++) {
-            if (hashMap.get(participant[i]) != null) {
-                hashMap.put(participant[i], hashMap.get(participant[i]) + 1);
-            } else {
-                hashMap.put(participant[i], 1);
-            }
-
+        for (String name : participant) {
+            hashMap.put(name, hashMap.getOrDefault(name, 0) + 1);  // 코드 간결화
         }
 
-        for (int i = 0; i < completion.length; i++) {
-            if (hashMap.get(completion[i]) != null) {
-                hashMap.put(completion[i], hashMap.get(completion[i]) - 1);
-            }
-
+        for (String name : completion) {
+            hashMap.put(name, hashMap.get(name) - 1);
         }
 
         for (String key : hashMap.keySet()) {
             if (hashMap.get(key) != 0) {
                 answer = key;
+                break;
             }
         }
 
